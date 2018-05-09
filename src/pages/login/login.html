@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Athlete Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input type="text" [(ngModel)]="login.username" name="username"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="login.password" name="password"></ion-input>
+      </ion-item>
+      <ion-input [hidden]="true" ></ion-input> <!-- fixes line spacing issue on last line of list -->
+
+    </ion-list>
+
+    <div padding>
+      <button ion-button color="primary" block (click) = 'athleteLogin();'>Sign In</button>
+    </div>
+    <div style="text-align: center">
+      <button ion-button clear (click) = 'signUp();'>Sign Up</button>
+    </div>
+
+<!--    <button ion-button (click) = 'testLogin();'>Test Login</button>
+
+    <button ion-button (click) = 'mobileTestLogin();'>Mobile Login</button> 
+
+ <ion-list>
+ <ion-item>
+ <ion-label floating>Username</ion-label>
+ <ion-input type="text" name="username" [(ngModel)]="data.username"></ion-input>
+ </ion-item>
+ 
+ <button ion-button block (click)="submit()">Submit to server</button>
+ </ion-list>
+ 
+ <ion-card>
+ <ion-card-header>
+ Response
+ </ion-card-header>
+ 
+ <ion-card-content>
+ <b>{{data.response}}</b>
+ </ion-card-content>
+ </ion-card>-->
+
+</ion-content>

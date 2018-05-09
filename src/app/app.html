@@ -1,0 +1,31 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+    <button ion-item menuClose (click)="openSquatMode()">
+        Squat Mode
+    </button>
+    <button ion-item menuClose (click)="openCurrentWorkout()">
+        Current Workout
+    </button>
+    <button ion-item menuClose (click)="openPastWorkouts()">
+        Past Workouts
+    </button>
+    <button ion-item menuClose (click)="openNewWorkouts()">
+        Start New Workout
+    </button>
+    <button ion-item menuClose (click)="appLogout()">
+        Sign Out
+    </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

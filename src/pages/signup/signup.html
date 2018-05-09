@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Athlete Sign Up</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>Athlete Name</ion-label>
+        <ion-input type="text" [(ngModel)]="signup.athletename" name="athletename"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>New Username</ion-label>
+        <ion-input type="text" [(ngModel)]="signup.username" name="username"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>New Password</ion-label>
+        <ion-input type="password" [(ngModel)]="signup.password" name="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Confirm Password</ion-label>
+        <ion-input type="password" [(ngModel)]="signup.confirmation" name="confirmation"></ion-input>
+      </ion-item>
+      <ion-input [hidden]="true" ></ion-input> <!-- fixes line spacing issue on last line -->
+
+    </ion-list>
+
+    <div padding>
+      <button ion-button color="primary" block (click) = 'signUp();'>Sign Up</button>
+    </div>
+
+</ion-content>

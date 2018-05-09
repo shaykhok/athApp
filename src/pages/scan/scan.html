@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Connect via Bluetooth
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="scan()">
+        Scan
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+   <ion-list>
+    <button ion-item *ngFor="let device of devices" (click)="deviceSelected(device)">
+      <h2>{{ device.name || 'Unnamed' }}</h2>
+      <p>{{ device.id }}</p>
+      <p>RSSI: {{ device.rssi }}</p>
+    </button>
+   </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="statusMessage">
+        <button ion-button clear color="dark"> {{ statusMessage }}</button></div>
+    <button ion-button clear (click) = 'logOut();' class="signOutButton">Sign Out</button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Current Workout</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<h4>Current Workout Progress:</h4>
+        <ion-list>
+          <ion-item text-wrap *ngFor="let set of currentWorkout.workoutData; let setIndex = index">
+             <ng-container *ngFor="let setKey of objectKeys(set)">
+                 <p>{{'Set ' + (setIndex+1) + ':'}}</p>
+                                   <ng-container *ngFor="let repetitions of objectKeys(set[setKey]); let repIndex = index">
+                                             <ng-container *ngIf="set[setKey][repIndex].rep === '0'">
+                                                 <div class="unattempted">
+                                                    <ng-container *ngIf="(repIndex+1) < 10">
+                                                       {{repIndex+1}}
+                                                    </ng-container>
+                                                    <ng-container *ngIf="(repIndex+1) >= 10">
+                                                       <div class="innerCircle">{{repIndex+1}}</div>
+                                                    </ng-container>
+                                                 </div>
+                                             </ng-container>
+                                             <ng-container *ngIf="set[setKey][repIndex].rep === '1'">
+                                                 <div class="failed">
+                                                    <ng-container *ngIf="(repIndex+1) < 10">
+                                                       {{repIndex+1}}      
+                                                    </ng-container>
+                                                    <ng-container *ngIf="(repIndex+1) >= 10">
+                                                       <div class="innerCircle">{{repIndex+1}}</div>
+                                                    </ng-container>
+                                                 </div>
+                                             </ng-container>
+                                             <ng-container *ngIf="set[setKey][repIndex].rep === '2'">
+                                                 <div class="completed">
+                                                    <ng-container *ngIf="(repIndex+1) < 10">
+                                                       {{repIndex+1}}      
+                                                    </ng-container>
+                                                    <ng-container *ngIf="(repIndex+1) >= 10">
+                                                       <div class="innerCircle">{{repIndex+1}}</div>
+                                                    </ng-container>
+                                                 </div>
+                                             </ng-container>
+                                             <ng-container *ngIf="set[setKey][repIndex].rep === '3'">
+                                                 <div class="inProgress">
+                                                    <ng-container *ngIf="(repIndex+1) < 10">
+                                                       {{repIndex+1}}
+                                                    </ng-container>
+                                                    <ng-container *ngIf="(repIndex+1) >= 10">
+                                                       <div class="innerCircle">{{repIndex+1}}</div>
+                                                    </ng-container>
+                                                 </div>
+                                             </ng-container>
+                                      </ng-container>
+             </ng-container>
+          </ion-item>
+        </ion-list>
+<h4>Workout Title: {{currentWorkout.workoutTitle}}</h4>
+<!--<h4>Workout Instructor: {{currentWorkout.instructorID}}</h4>-->
+<h4>Workout Instructor: {{currentWorkout.username}}</h4>
+
+<ng-container *ngIf="this.noteData.length > 0">
+<h4>Instructor Notes:</h4>
+    <ion-list>
+
+            <ion-item text-wrap *ngFor="let note of this.noteData">
+<!--                <b>Instructor: </b> {{note.instructorname}} -->
+                <b>Instructor: </b> {{note.username}}
+                <br>
+                <b>Date: {{note.notedate | slice:0:10}} </b>
+                <br>
+                {{note.note}}
+            </ion-item>
+
+    </ion-list>
+</ng-container>
+</ion-content>

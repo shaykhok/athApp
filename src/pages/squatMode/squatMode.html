@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Squat Mode</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="squatModeBackground" class="squatUnattempted">
+    <h2 style="text-align: center">Reps Remaining:</h2>
+<div class="repsRemaining">
+   <p id="repsRemaining">{{this.repsRemaining}}</p>
+</div>
+
+<div class="bottomTab">
+   <div id="startCircle" class="startStatusNotSet"></div>
+        <button ion-button class="actionButton" id="sendActionButton" (click) = "sendAction();">Start</button>
+<!--<button ion-button (click) = "testEvent();">Event</button> -->
+   <div id="targetCircle" class="targetStatusNotSet"></div>
+   <div class="startStatusText">Start</div>
+   <div class="targetStatusText">Target</div>
+</div>
+</ion-content>

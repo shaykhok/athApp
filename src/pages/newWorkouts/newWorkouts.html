@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Assigned Workouts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<ng-container *ngIf="this.athleteAssignedWorkouts.length > 0">
+   <ion-list>
+    <button detail-none (click)="startWorkout(workout)" ion-item text-wrap *ngFor="let workout of athleteAssignedWorkouts">
+                   <h2>{{workout.title}} • {{workout.datecreated | slice:0:10}} </h2>
+<!--                   <p><b>Instructor: </b> {{workout.instructorname}}</p>-->
+                   <p><b>Instructor: </b> {{workout.username}}</p>
+                   <p><b>Sets: </b>{{workout.sets}} • <b>Reps: </b>{{workout.reps}}</p>
+            <button ion-button clear item-end>Start Workout</button>
+    </button>
+    <br>
+   </ion-list>
+</ng-container>
+
+<ng-container *ngIf="this.athleteAssignedWorkouts.length == 0">
+   <h3>No assigned workouts</h3>
+</ng-container>
+</ion-content>

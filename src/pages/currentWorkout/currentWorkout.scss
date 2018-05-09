@@ -1,0 +1,69 @@
+page-currentWorkout {
+.completed{
+  font-size:16px;
+  vertical-align: top;
+  line-height:0;
+  text-indent: -4px;
+  display: inline-block;
+  background: linear-gradient(#32db64, #006600);
+  width:20px;
+  height:20px;
+  padding:20px;
+  border: 2px solid #dedede;
+  border-radius:50%;
+  margin:0 auto;
+  margin-top:20px;
+}
+.failed{
+  font-size:16px;
+  vertical-align: top;
+  line-height:0;
+  text-indent: -4px;
+  display: inline-block;
+  background: linear-gradient(#f53d3d, #561515);
+  width:20px;
+  height:20px;
+  padding:20px;
+  border: 2px solid #dedede;
+  border-radius:50%;
+  margin:0 auto;
+  margin-top:20px;
+}
+.inProgress{
+  font-size:16px;
+  vertical-align: top;
+  line-height:0;
+  text-indent: -4px;
+  display: inline-block;
+  background: linear-gradient(#ffff4d, #808000);
+  width:20px;
+  height:20px;
+  padding:20px;
+  border: 2px solid #dedede;
+  border-radius:50%;
+  margin:0 auto;
+  margin-top:20px;
+}
+.unattempted{
+  font-size:16px;
+  vertical-align: top;
+  display: inline-block;
+  line-height:0;
+  text-indent: -4px;
+  background-color:transparent;
+  width:20px;
+  height:20px;
+  padding:20px;
+  border: 2px solid #dedede;
+  border-radius:50%;
+  margin:0 auto;
+  margin-top:20px;
+}
+.innerCircle{
+  text-align: center;
+  display:inline-block;
+  background-color:transparent;
+  position: absolute;
+}
+
+}

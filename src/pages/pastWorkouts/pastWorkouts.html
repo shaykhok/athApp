@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Past Workouts</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<ng-container *ngIf="this.pastWorkouts.length != 0">
+<ion-list>
+      <button detail-none (click)="expandPastWorkout(pastWorkout)" ion-item text-wrap *ngFor="let pastWorkout of pastWorkouts">
+        <h2>{{pastWorkout.workoutTitle}} • {{pastWorkout.date | slice:0:10}}</h2>
+        <!-- <p>Instructor: {{pastWorkout.instructorID}}</p>-->
+<p>Instructor: {{pastWorkout.username}}</p>
+        <p>Sets: {{pastWorkout.sets}} • Reps: {{pastWorkout.reps}}</p>
+    <expandable [expandHeight]="itemExpandHeight" [expanded]="pastWorkout.expanded">
+
+
+        <ion-list>
+          <ion-item text-wrap *ngFor="let set of pastWorkout.workoutData; let setIndex = index">
+             <ng-container *ngFor="let setKey of objectKeys(set)">
+                 <p>{{'Set ' + (setIndex+1) + ':'}}</p>
+                                   <ng-container *ngFor="let repetitions of objectKeys(set[setKey]); let repIndex = index">
+                                             <ng-container *ngIf="set[setKey][repIndex].rep === '0'">
+                                                 <div class="unattempted">
+                                                    <ng-container *ngIf="(repIndex+1) < 10">
+                                                       {{repIndex+1}}
+                                                    </ng-container>
+                                                    <ng-container *ngIf="(repIndex+1) >= 10">
+                                                       <div class="innerCircle">{{repIndex+1}}</div>
+                                                    </ng-container>
+                                                 </div>
+                                             </ng-container>
+                                             <ng-container *ngIf="set[setKey][repIndex].rep === '1'">
+                                                 <div class="failed">
+                                                    <ng-container *ngIf="(repIndex+1) < 10">
+                                                       {{repIndex+1}}
+                                                    </ng-container>
+                                                    <ng-container *ngIf="(repIndex+1) >= 10">
+                                                       <div class="innerCircle">{{repIndex+1}}</div>
+                                                    </ng-container>
+                                                 </div>
+                                             </ng-container>
+                                             <ng-container *ngIf="set[setKey][repIndex].rep === '2'">
+                                                 <div class="completed">
+                                                    <ng-container *ngIf="(repIndex+1) < 10">
+                                                       {{repIndex+1}}
+                                                    </ng-container>
+                                                    <ng-container *ngIf="(repIndex+1) >= 10">
+                                                       <div class="innerCircle">{{repIndex+1}}</div>
+                                                    </ng-container>
+                                                 </div>
+                                             </ng-container>
+                                      </ng-container>
+             </ng-container>
+          </ion-item>
+        </ion-list>
+    </expandable>
+        <button ion-button clear (click)="pastWorkoutTapped($event, pastWorkout)" item-end>Details</button>
+      </button>
+</ion-list>
+
+</ng-container>
+
+<ng-container *ngIf="this.pastWorkouts.length == 0">
+   <h3>No past workouts</h3>
+</ng-container>
+
+</ion-content>

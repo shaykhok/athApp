@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Athlete Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<button ion-button block (click) = 'viewNewWorkouts();'>Start a New Workout</button>
+<br>
+
+<ng-container *ngIf="this.data.currentWorkoutID != -1">
+   <button ion-button block (click) = 'resumeWorkout();'>Resume Last Workout</button>
+   <br>
+</ng-container>
+
+<button ion-button block (click) = 'viewPastWorkouts();'>View Past Workouts</button>
+<br>
+
+<div style="text-align: center">
+    <button ion-button clear (click) = 'logOut();'>Sign Out</button>
+</div>
+
+</ion-content>
